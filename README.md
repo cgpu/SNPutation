@@ -36,3 +36,12 @@ for f in * ; do mv -- "$f" "chr$f" ; done
 # Add suffix
 for f in * ; do mv -- "$f" "$f.vcf" ; done
 ```
+
+
+
+### Merge output of Fast imputation to create 1:23456 format (Michigan Imputation Server Style)
+
+```
+# take the columns 1 and 2 and substitute g - globally the \t - tab with : - colon
+cut -f1,2 merged.vcf | sed 's/\t/:/g'
+```
