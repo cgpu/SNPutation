@@ -13,3 +13,26 @@ Solution from SO: https://unix.stackexchange.com/questions/308583/is-there-a-com
 # Fast Imputation output file contains a field with merged metadata, seperated by ;
 cat dashdashless_YXMTless_8589.23andme.6953.vcf  | tr ";" "\t" > new.vcf
 ```
+
+
+### Split merged vcf to per chromosome
+After removing the header:
+
+```
+for file in *.vcf ; do
+
+# Remove header
+grep -v "^#"  "$file" >  "commentless.vcf"; done
+```
+
+
+```
+# Split merged vcf into per chromosome
+awk '{if (last != $1) close(last); print >> $1; last = $1}' ../commentless.vcf
+
+# Add chromosome prefix
+for f in * ; do mv -- "$f" "chr$f" ; done
+
+# Add suffix
+for f in * ; do mv -- "$f" "$f.vcf" ; done
+```
