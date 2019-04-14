@@ -45,3 +45,10 @@ for f in * ; do mv -- "$f" "$f.vcf" ; done
 # take the columns 1 and 2 and substitute g - globally the \t - tab with : - colon
 cut -f1,2 merged.vcf | sed 's/\t/:/g'
 ```
+
+### Count all lines that do not contain
+
+```
+grep -vc "Imputed" chr1.info
+```
+```
