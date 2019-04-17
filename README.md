@@ -62,3 +62,10 @@ grep -vc "Imputed" chr1.info
 ```
 wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1
 ```
+
+
+### While being on the `ImputationComparison_n30` directory:
+
+```
+cd 23andme_downloads_dir/ && gsha256sum *.23andme.* > ../filechecksums.txt && cd ..
+```
