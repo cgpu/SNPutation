@@ -51,4 +51,7 @@ cut -f1,2 merged.vcf | sed 's/\t/:/g'
 ```
 grep -vc "Imputed" chr1.info
 ```
+### Count lines for all files in diorectory (don't count the total line)
+```
+ls -l | grep -v total | wc -l
 ```
