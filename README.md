@@ -51,7 +51,14 @@ cut -f1,2 merged.vcf | sed 's/\t/:/g'
 ```
 grep -vc "Imputed" chr1.info
 ```
-### Count lines for all files in diorectory (don't count the total line)
+### Retrieve one column with the lines per file in current directory 
+
+-- count lines for all files in current directory: `wc -l *`
+-- exclude summary line: `grep -v total`
+-- remove leading whitespaces: `sed -e 's/^[ \t]*//' `
+-- grab the first column by denoting delim is whitespace: `cut -d' ' -f1`
+ (this wouldn't working if leading whitespaces existed since the delimitter is also whitespace for line count and file)
+
 ```
-ls -l | grep -v total | wc -l
+wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1
 ```
