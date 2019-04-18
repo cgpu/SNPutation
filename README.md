@@ -64,7 +64,18 @@ wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1
 ```
 
 
-### While being on the `ImputationComparison_n30` directory:
+### While being on the `ImputationComparison_n30` directory (project parent directory):
+
+To retrieve info for the downloaded input files about:
+
+-- openSNP filename which can be transformed to wgettable URL
+eg  `http_PREFIX` + `filename` AKA `https://opensnp.org/data/` + `8589.23andme.6953`
+
+-- number of file lines after download
+This will be the sum of header (commnted out with #) and SNP entries (1 SNP is 1 row of the file)
+
+-- the sha256checksum of each downloaded file
+For input data integrity verification (reproducibility)
 
 ```
 # Take filenames of the files
