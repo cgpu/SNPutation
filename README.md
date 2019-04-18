@@ -68,11 +68,25 @@ wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1
 
 ```
 # Take filenames of the files
+cd 23andme_downloads_dir/ && \
+wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f2 > ../filenames.txt && \
+cd ..
 
 # Take line counts of the files
-# Remove leading whiotespaces: https://www.cyberciti.biz/tips/delete-leading-spaces-from-front-of-each-word.html
+# Remove leading whitespaces: https://www.cyberciti.biz/tips/delete-leading-spaces-from-front-of-each-word.html
 wc -l 23andme_downloads_dir/* | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1 > filelines.txt
 
-# Take checksuyms of the files, 1 column
-cd 23andme_downloads_dir/ && gsha256sum *.23andme.* | cut -d' ' -f1 > ../filechecksums.txt && cd ..
+# Take checksums of the files, 1 column
+cd 23andme_downloads_dir/ &&  \
+gsha256sum *.23andme.* | cut -d' ' -f1 > ../filechecksums.txt && \
+cd ..
+
+# Paste columns into one to have info for the downloaded files
+paste -d ",," filenames.txt filelines.txt filechecksums.txt > info_23andme_downloads.csv && \
+rm filenames.txt filelines.txt filechecksums.txt
+
+# Add header with cat
+echo "openSNP_filename,number_of_lines_with_comments,file_checksum" > header.csv
+cat header.csv info_23andme_downloads.csv > info_23andme_downloads_header.csv
+rm header.csv info_23andme_downloads.csv
 ```
