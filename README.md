@@ -67,5 +67,12 @@ wc -l * | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1
 ### While being on the `ImputationComparison_n30` directory:
 
 ```
-cd 23andme_downloads_dir/ && gsha256sum *.23andme.* > ../filechecksums.txt && cd ..
+# Take filenames of the files
+
+# Take line counts of the files
+# Remove leading whiotespaces: https://www.cyberciti.biz/tips/delete-leading-spaces-from-front-of-each-word.html
+wc -l 23andme_downloads_dir/* | grep -v total | sed -e 's/^[ \t]*//' | cut -d' ' -f1 > filelines.txt
+
+# Take checksuyms of the files, 1 column
+cd 23andme_downloads_dir/ && gsha256sum *.23andme.* | cut -d' ' -f1 > ../filechecksums.txt && cd ..
 ```
