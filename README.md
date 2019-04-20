@@ -101,3 +101,13 @@ echo "openSNP_filename,number_of_lines_with_comments,file_checksum" > header.csv
 cat header.csv info_23andme_downloads.csv > info_23andme_downloads_header.csv
 rm header.csv info_23andme_downloads.csv
 ```
+
+### Count lines that start with `#` 
+ 
+```
+for file in Dropbox/ImputationComparison_n30/23andme_downloads_dir/*.23andme.* ; 
+do grep "^#" $file | wc -l  > commented_out_lines_file.txt; 
+done
+```
+  
+  
