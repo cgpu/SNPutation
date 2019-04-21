@@ -110,4 +110,13 @@ do grep "^#" $file | wc -l  > commented_out_lines_file.txt;
 done
 ```
   
+Or 
+
+
+### Count new lines and print filename in same line
+
+```
+for file in 23andme_downloads_dir/*.23andme.* ; do grep "^#" $file | wc -l | tr "\n" "\t" && echo `basename $file` ; done
+
+```
   
