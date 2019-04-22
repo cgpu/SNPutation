@@ -126,3 +126,12 @@ for file in 23andme_downloads_dir/*.23andme.* ; do grep "^#" $file | wc -l | tr 
 # https://stackoverflow.com/questions/15216370/how-to-count-number-of-files-in-each-directory#
  du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
 ```
+
+### Do ls -l and grab the last column by defining [SPACE] as delim
+-- `grep -v total`: do not include the summary `ls -l` line 
+-- `grep -o '[^ ]*$'`: grab the last column with [SPACE] as delim
+# https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut
+
+```
+ls -l dashless_YXMTless_23andme_files/ | grep -v total| grep -o '[^ ]*$' > dashless.txt
+```
