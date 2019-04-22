@@ -127,6 +127,14 @@ for file in 23andme_downloads_dir/*.23andme.* ; do grep "^#" $file | wc -l | tr 
  du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
 ```
 
+
+## Remove/Select SNPs from non-autosomal chromosomes
+```
+awk '{ if ($2 != 26 && $2 != 25 && $2 != 24 && $2 != 23 && $2 != "Y" && $2 != "X" && $2 != "MT") print $0 }'  "$file" >  "YXMT_${file}"
+```
+
+
+
 ### Do ls -l and grab the last column by defining [SPACE] as delim
 -- `grep -v total`: do not include the summary `ls -l` line 
 -- `grep -o '[^ ]*$'`: grab the last column with [SPACE] as delim
