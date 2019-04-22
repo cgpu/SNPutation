@@ -119,4 +119,10 @@ Or
 for file in 23andme_downloads_dir/*.23andme.* ; do grep "^#" $file | wc -l | tr "\n" "\t" && echo `basename $file` ; done
 
 ```
-  
+ 
+ ## How To: Count number of files in each sub-directory
+ 
+```
+# https://stackoverflow.com/questions/15216370/how-to-count-number-of-files-in-each-directory#
+ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
+```
