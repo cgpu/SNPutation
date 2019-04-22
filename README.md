@@ -130,7 +130,7 @@ for file in 23andme_downloads_dir/*.23andme.* ; do grep "^#" $file | wc -l | tr 
 ### Do ls -l and grab the last column by defining [SPACE] as delim
 -- `grep -v total`: do not include the summary `ls -l` line 
 -- `grep -o '[^ ]*$'`: grab the last column with [SPACE] as delim
-# https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut
+`# https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut`
 
 ```
 ls -l dashless_YXMTless_23andme_files/ | grep -v total| grep -o '[^ ]*$' > dashless.txt
