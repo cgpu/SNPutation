@@ -143,3 +143,21 @@ awk '{ if ($2 != 26 && $2 != 25 && $2 != 24 && $2 != 23 && $2 != "Y" && $2 != "X
 ```
 ls -l dashless_YXMTless_23andme_files/ | grep -v total| grep -o '[^ ]*$' > dashless.txt
 ```
+
+
+## Count genotyped/imputed SNPs per chromosome
+
+```
+# -f8, column 8 contains info for the SNP, genotyped/imputed are the possible metadata categories
+for file in *.info ; 
+do
+echo "$file"   > "${file}.counted"
+cut -f8 "$file" | sort | uniq -c >> "${file}.counted" 
+done
+
+mkdir IMPU_COUNTED
+for file in *.counted ; 
+do
+mv  "$file" ../IMPU_COUNTED/"${file}" 
+done
+```
