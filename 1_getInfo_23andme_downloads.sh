@@ -28,7 +28,7 @@
 
 # You can import the output .csv in Rstudio by using the following command:
 #library(readr)
-#info_23andme_downloads_header <- read_csv("Dropbox/ImputationComparison_n30/info_23andme_downloads_header.csv", 
+#info_23andme_downloads_header <- read_csv("/path/to/info_23andme_downloads_header.csv", 
 #    col_types = cols(  all_lines                                                  = col_integer(), 
 #                       commented_out_lines                                        = col_integer(), 
 #                       dashdash_genotype_SNPs                                     = col_integer(), 
