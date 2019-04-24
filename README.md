@@ -135,7 +135,7 @@ awk '{ if ($2 != 26 && $2 != 25 && $2 != 24 && $2 != 23 && $2 != "Y" && $2 != "X
 
 
 
-### Do ls -l and grab the last column by defining [SPACE] as delim
+### Do `ls -l` and grab the last column by defining [SPACE] as delim
 -- `grep -v total`: do not include the summary `ls -l` line 
 -- `grep -o '[^ ]*$'`: grab the last column with [SPACE] as delim
 `# https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut`
