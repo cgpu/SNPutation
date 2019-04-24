@@ -1,4 +1,4 @@
-# Save in new trimmed files the 23andme files fromopenSNP:
+# Save in new trimmed files the 23andme files from openSNP:
 # Filtering applied:
 # -- REMOVE dash dash genotype SNPs 
 # -- REMOVE non-autosomal chromos
