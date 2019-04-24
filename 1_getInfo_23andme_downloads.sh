@@ -12,14 +12,20 @@
 
 # OUTPUT 
 # A .csv file with the following columns; header == TRUE
-# openSNP_filename: 
-# 
-#
-#
-#
-#
-#
-#
+# openSNP_filenames
+# checksums
+# all_lines
+# commented_out_lines
+# not_commented_out_lines
+# non_autosomal_SNPs
+# dashdash_genotype_SNPs
+# non_dashdash_only_autosomal_SNPs
+# intersect_YXMT_dashdash_SNP
+# union_YXMT_dashdash_SNPs
+# internal_23andme_specific_SNPs
+# intersect_YXMT_dashdash_internal_SNPs
+# thrice_trimmed_SNPs__autosomal_only_no_dash_no_internal_ID
+
 
 # COLUMN 1
 # Take filenames of the files; cd and `wc -l *` is prefered from `wc -l 23andme_downloads-dir/*`
@@ -117,5 +123,7 @@ rm                       openSNP_filenames.txt  checksums.txt all_lines.txt comm
 echo "openSNP_filenames,checksums,all_lines,commented_out_lines,not_commented_out_lines,non_autosomal_SNPs,dashdash_genotype_SNPs,non_dashdash_only_autosomal_SNPs,intersect_YXMT_dashdash_SNPs,union_YXMT_dashdash_SNPs,internal_23andme_specific_SNPs,intersect_YXMT_dashdash_internal_SNPs,thrice_trimmed_SNPs__autosomal_only_no_dash_no_internal_ID" > header.csv
 cat header.csv info_23andme_downloads.csv > info_23andme_downloads_header.csv
 rm header.csv info_23andme_downloads.csv 
+
+
 
 
