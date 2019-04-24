@@ -145,5 +145,3 @@ cat header.csv info_23andme_downloads.csv > info_23andme_downloads_header.csv
 rm header.csv info_23andme_downloads.csv 
 
 
-
-
