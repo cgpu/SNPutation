@@ -26,6 +26,26 @@
 # intersect_YXMT_dashdash_internal_SNPs
 # thrice_trimmed_SNPs__autosomal_only_no_dash_no_internal_ID
 
+# You can import the output .csv in Rstudio by using the following command:
+#library(readr)
+#info_23andme_downloads_header <- read_csv("Dropbox/ImputationComparison_n30/info_23andme_downloads_header.csv", 
+#    col_types = cols(  all_lines                                                  = col_integer(), 
+#                       commented_out_lines                                        = col_integer(), 
+#                       dashdash_genotype_SNPs                                     = col_integer(), 
+#                       internal_23andme_specific_SNPs                             = col_integer(), 
+#                       intersect_YXMT_dashdash_SNPs                               = col_integer(), 
+#                       intersect_YXMT_dashdash_internal_SNPs                      = col_integer(), 
+#                       non_autosomal_SNPs                                         = col_integer(), 
+#                       non_dashdash_only_autosomal_SNPs                           = col_integer(), 
+#                       not_commented_out_lines                                    = col_integer(), 
+#                       thrice_trimmed_SNPs__autosomal_only_no_dash_no_internal_ID = col_integer(), 
+#                       union_YXMT_dashdash_SNPs                                   = col_integer()))
+
+
+
+
+
+
 
 # COLUMN 1
 # Take filenames of the files; cd and `wc -l *` is prefered from `wc -l 23andme_downloads-dir/*`
