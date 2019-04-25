@@ -200,3 +200,24 @@ for f in * ; do mv -- "$f" "chr$f" ; done
 for f in * ; do mv -- "$f" "$f.vcf" ; done
 
 ```
+
+
+# Results preprocessing
+
+```
+# Script name:  count_genotyped_imputed_per_chromosome.sh
+# Working Directory when running this: /Users/admin/Dropbox/23andme_Thu/Michi_8589_6953_23andme/INFO
+
+# -f8, column 8 contains info for the SNP, genotyped/imputed are the possible metadata categories
+for file in *.info ;
+do
+echo "$file"   > "${file}.counted"
+cut -f8 "$file" | sort | uniq -c >> "${file}.counted"
+done
+
+mkdir IMPU_COUNTED
+for file in *.counted ;
+do
+mv  "$file" IMPU_COUNTED/"${file}"
+done
+```
