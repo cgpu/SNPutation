@@ -186,3 +186,17 @@ awk '{ if ($2 != 26 && $2 != 25 && $2 != 24 && $2 != 23 && $2 != "Y" && $2 != "X
 for file in *.txt ; do 
 awk '$4 !~ /^--/'  "$file" >  "dashdashless_${file}"; done
 ```
+
+## Split merged vcf file per chromosome - FastImputation Output
+
+```
+# Split merged vcf into per chromosome
+awk '{if (last != $1) close(last); print >> $1; last = $1}' ../commentless.vcf
+
+# Add chromosome prefix
+for f in * ; do mv -- "$f" "chr$f" ; done
+
+# Add suffix
+for f in * ; do mv -- "$f" "$f.vcf" ; done
+
+```
